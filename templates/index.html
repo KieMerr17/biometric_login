@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Authentication</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Scan the QR Code to Access the Site</h1>
+        <!-- Use the /qr_code route to dynamically fetch the QR code image -->
+        <img id="qr-code" src="{{ url_for('generate_qr_code') }}" alt="QR Code">
+        <!-- Hidden content, shown after successful authentication -->
+        <div class="hidden-content" id="full-content">
+            <h2>Welcome to the Full Site</h2>
+            <p>Here is the content that was hidden until you authenticated.</p>
+        </div>
+    </div>
+
+    <!-- External JavaScript file -->
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>
